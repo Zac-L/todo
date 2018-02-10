@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.0.4",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "jest": "^22.2.2",
+    "nodemon": "^1.14.12"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "start:watch": "nodemon scripts/start.js",
+    "pretest": "eslint .",
+    "test": "jest",
+    "pretest:watch": "eslint .",
+    "test:watch": "jest --watch"
+  }
+}
