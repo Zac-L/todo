@@ -1,0 +1,19 @@
+{
+    "folders": [
+        {
+            "name": "TODO",
+            "path": "."
+        },
+        {
+            "name": "TODO APP",
+            "path": "app"
+        },
+        {
+            "name": "TODO API",
+            "path": "api"
+        },
+    ],
+    "settings": {
+        "eslint.packageManager": "yarn"
+    }
+}
