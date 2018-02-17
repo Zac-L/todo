@@ -1,8 +1,9 @@
 const notFound = (req, res) => {
   res.status(404)
     .json({
-      data: {
-        title: 'Not Found'
+      error: {
+        stats: 404,
+        description: `Cannot ${req.method} ${req.path}`
       }
     });
 };
