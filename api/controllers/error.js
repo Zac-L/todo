@@ -1,3 +1,7 @@
+const index = (error, req, res, next) => {
+  console.log(error);
+};
+
 const notFound = (req, res) => {
   res.status(404)
     .json({
@@ -9,5 +13,6 @@ const notFound = (req, res) => {
 };
 
 module.exports = {
+  index,
   notFound
 };
