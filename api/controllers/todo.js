@@ -3,7 +3,7 @@ const Todo = require('../models/todo');
 
 const index = (req, res, next) => {
   Todo
-    .find({ user: req.user._id })
+    .find()
     .select('__v -user -createdAt -updateAt')
     .lean()
     .then(todos => {
@@ -16,10 +16,7 @@ const index = (req, res, next) => {
 
 const store = (req, res, next) => {
   Todo
-    .create({
-      ...req.body,
-      user: req.user._id
-    })
+    .create(req.body)
     .then(todo => {
       res.json({
         data: { todo },
@@ -32,7 +29,6 @@ const show = (req, res, next) => {
   Todo
     .findOne({
       _id: req.params._id,
-      user: req.user._id
     })
     .select('__v -user -createdAt -updateAt')
     .lean()
@@ -48,7 +44,6 @@ const update = (req, res, next) => {
   Todo
     .findOneAndUpdate({
       _id: req.params._id,
-      user: req.user._id
     }, 
     req.body,
     { new: true }
@@ -67,7 +62,6 @@ const destroy = (req, res, next) => {
   Todo
     .findOneAndRemove({
       _id: req.params._id,
-      user: req.user._id
     })
     .select('__v -user -createdAt -updateAt')
     .lean()
