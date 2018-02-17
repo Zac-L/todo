@@ -24,52 +24,52 @@ class IndexPage extends Component {
         .then(response => response.json())
         .then(json => {
           if(json.error) {
-            return Promise.reject(json.error)
+            return Promise.reject(json.error);
           }
 
           this.setState(prevState => ({
             fields: {},
             todos: prevState.todos.concat(json.data.todo),
-          }))
+          }));
         })
         .catch(response => {
           this.setState({
             fields: response.fields
-          })
+          });
           console.log('Error!', response);
-        })
-        event.target.reset();
+        });
+      event.target.reset();
     }
 
     render() {
       const { handleSubmit } = this;
       const { fields, todos } = this.state;
 
-        return (
-          <Fragment>
-            <header>
-              <h1>TODO App with Next.js</h1>
-            </header>
+      return(
+        <Fragment>
+          <header>
+            <h1>TODO App with Next.js</h1>
+          </header>
           <main>
-              {todos.length 
-                ? (
-                  <ul>
-                    {todos.map(todo => <li>{todo.title}</li>)}
-                  </ul>
-                )
-                : (
-                  <p>There are no todos! </p>
-                )
-              }
-              <form onSubmit={handleSubmit}>
-                <input type="text" name="title" />
-                {fields.title && (
-                  <p>{fields.title}</p>
-                )}
-              </form>
-            </main>
-          </Fragment>
-        );
+            {todos.length 
+              ? (
+                <ul>
+                  {todos.map(todo => <li>{todo.title}</li>)}
+                </ul>
+              )
+              : (
+                <p>There are no todos! </p>
+              )
+            }
+            <form onSubmit={handleSubmit}>
+              <input type="text" name="title" />
+              {fields.title && (
+                <p>{fields.title}</p>
+              )}
+            </form>
+          </main>
+        </Fragment>
+      );
     }
 }
 
