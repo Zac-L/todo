@@ -1,6 +1,28 @@
-const index = (error, req, res, next) => {
+const index = (err, req, res, next) => {
+  const error = { description: err.message };
   
-  console.log(error);
+  switch(err.name) {
+    case 'ValidationError':
+      error.status = 422;
+      if(err.errors) {
+        error.description = 'Validation Error with one or more fields';
+        error.fields =  Object
+          .entries(err.errors)
+          .reduce((prev, [field, { message }]) => ({
+            ...prev,
+            [field]: message,
+          }), {});
+      }
+      break;
+
+    default: 
+      error.status = 500;
+      break;
+  }
+
+  return res
+    .status(error.status)
+    .json({ error });
 };
 
 const notFound = (req, res) => {
