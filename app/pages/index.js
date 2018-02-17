@@ -4,7 +4,7 @@ import React, { Component, Fragment } from 'react';
 class IndexPage extends Component {
   state = {
     todos: [],
-    fields: null,
+    fields: {},
   }
 
     handleSubmit = event => {
@@ -28,7 +28,7 @@ class IndexPage extends Component {
           }
 
           this.setState(prevState => ({
-            fields: null,
+            fields: {},
             todos: prevState.todos.concat(json.data.todo),
           }))
         })
@@ -50,7 +50,7 @@ class IndexPage extends Component {
             <header>
               <h1>TODO App with Next.js</h1>
             </header>
-            <main>
+          <main>
               {todos.length 
                 ? (
                   <ul>
