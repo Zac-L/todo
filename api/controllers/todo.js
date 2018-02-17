@@ -8,9 +8,7 @@ const index = (req, res, next) => {
     .lean()
     .then(todos => {
       res.json({
-        data: {
-          todos,
-        },
+        data: { todos },
       });
     })
     .catch(next);
@@ -24,9 +22,7 @@ const store = (req, res, next) => {
     })
     .then(todo => {
       res.json({
-        data: {
-          todo,
-        },
+        data: { todo },
       });
     })
     .catch(next);
