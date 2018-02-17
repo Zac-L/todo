@@ -1,8 +1,12 @@
 const notFound = (req, res) => {
   res.status(404)
     .json({
-      title: 'Not Found'
+      data: {
+        title: 'Not Found'
+      }
     });
 };
 
-module.exports = notFound;
+module.exports = {
+  notFound
+};
