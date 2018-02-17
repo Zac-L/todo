@@ -20,5 +20,6 @@ apiRouter.route('/me/todos/:id')
 
 // Error Handler
 apiRouter.use(errorController.notFound);
+apiRouter.use(errorController.index);
 
 module.exports = apiRouter;
