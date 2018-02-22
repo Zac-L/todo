@@ -1,6 +1,7 @@
 {
     "files.exclude": {
         "**/api": true,
-        "**/app": true
+        "**/app-react": true,
+        "**/app-next": true
     }
 }

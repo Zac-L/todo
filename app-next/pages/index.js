@@ -42,35 +42,35 @@ class IndexPage extends Component {
     }
 
     render() {
-      const { handleSubmit } = this;
-      const { fields, todos } = this.state;
+    const { handleSubmit } = this;
+    const { fields, todos } = this.state;
 
-      return(
-        <Fragment>
-          <header>
-            <h1>TODO App with Next.js</h1>
-          </header>
-          <main>
-            {todos.length 
-              ? (
-                <ul>
-                  {todos.map(todo => <li>{todo.title}</li>)}
-                </ul>
-              )
-              : (
-                <p>There are no todos! </p>
-              )
-            }
-            <form onSubmit={handleSubmit}>
-              <input type="text" name="title" />
-              {fields.title && (
-                <p>{fields.title}</p>
-              )}
-            </form>
-          </main>
-        </Fragment>
-      );
-    }
+    return(
+      <Fragment>
+        <header>
+          <h1>TODO App with Next.js</h1>
+        </header>
+        <main>
+          {todos.length 
+            ? (
+              <ul>
+                {todos.map(todo => <li>{todo.title}</li>)}
+              </ul>
+            )
+            : (
+              <p>There are no todos! </p>
+            )
+          }
+          <form onSubmit={handleSubmit}>
+            <input type="text" name="title" />
+            {fields.title && (
+              <p>{fields.title}</p>
+            )}
+          </form>
+        </main>
+      </Fragment>
+    );
+  }
 }
 
 export default IndexPage;

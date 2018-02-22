@@ -5,8 +5,12 @@
             "path": "."
         },
         {
-            "name": "TODO APP",
-            "path": "app"
+            "name": "TODO REACT APP",
+            "path": "app-react"
+        },
+        {
+            "name": "TODO NEXT APP",
+            "path": "app-next"
         },
         {
             "name": "TODO API",
