@@ -12,6 +12,9 @@
       "jest": true,
       "mongo": true
     },
+    "globals": {
+      "Promise": true
+    },
     "extends": ["eslint:recommended"],
     "rules": {
         "no-console": "warn",
