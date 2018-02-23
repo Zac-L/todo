@@ -2,8 +2,12 @@ const index = (err, req, res, next) => {
   const error = { description: err.message };
   
   switch(err.name) {
-    case 'ValidationError':
+    case'UnauthorizedError': 
+      error.status = 401;
+      break;
+    case'ValidationError':
       error.status = 422;
+      
       if(err.errors) {
         error.description = 'Validation Error with one or more fields';
         error.fields =  Object
