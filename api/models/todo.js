@@ -13,11 +13,11 @@ const todoSchema = new Schema({
     type: Types.Boolean,
     default: false,
   },
-  // user: {
-  //   type: Types.ObjectId,
-  //   required: 'The userid is required',
-  //   ref: 'User',
-  // },
+  user: {
+    type: Types.ObjectId,
+    required: 'The userid is required',
+    ref: 'User',
+  },
   createdAt: {
     type: Types.Date,
     default: Date.now,
