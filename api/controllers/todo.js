@@ -3,8 +3,8 @@ const Todo = require('../models/todo');
 
 const index = (req, res, next) => {
   Todo
-    .find()
-    .select('-__v -createdAt -updateAt')
+    .find({ user: req.user._id })
+    .select('-__v -user -createdAt -updateAt')
     .lean()
     .then(todos => {
       res.json({
@@ -16,7 +16,7 @@ const index = (req, res, next) => {
 
 const store = (req, res, next) => {
   Todo
-    .create(req.body)
+    .create({ ...req.body, user: req.user._id })
     .then(todo => {
       res.json({
         data: { todo },
@@ -27,8 +27,11 @@ const store = (req, res, next) => {
 
 const show = (req, res, next) => {
   Todo
-    .findOne({ _id: req.params.id })
-    .select('-__v -createdAt -updateAt')
+    .findOne({ 
+      _id: req.params.id,
+      user: req.user._id
+    })
+    .select('-__v -user -createdAt -updateAt')
     .lean()
     .then(todo => {
       res.json({
@@ -40,11 +43,14 @@ const show = (req, res, next) => {
 
 const update = (req, res, next) => {
   Todo
-    .findOneAndUpdate({ _id: req.params.id }, 
-      req.body,
-      { new: true }
+    .findOneAndUpdate({ 
+      _id: req.params.id,
+      user: req.user._id,
+    },
+    req.body,
+    { new: true }
     )
-    .select('-__v -createdAt -updateAt')
+    .select('-__v -user -createdAt -updateAt')
     .lean()
     .then(todo => {
       res.json({
@@ -56,8 +62,11 @@ const update = (req, res, next) => {
 
 const destroy = (req, res, next) => {
   Todo
-    .findOneAndRemove({ _id: req.params.id })
-    .select('-__v -createdAt -updateAt')
+    .findOneAndRemove({ 
+      _id: req.params.id,
+      user: req.user._id
+    })
+    .select('-__v -user -createdAt -updateAt')
     .lean()
     .then(todo => {
       res.json({
