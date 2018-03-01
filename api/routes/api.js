@@ -9,7 +9,10 @@ const { ensureAuth } = require('../middlewares/auth');
 const apiRouter = Router();
 const jsonParser = json();
 
-apiRouter.get('/', apiController.index);
+apiRouter.route('/')
+  .get(apiController.index);
+
+// apiRouter.get('/', apiController.index);
 
 apiRouter.route('/me')
   .get(authController.index)
