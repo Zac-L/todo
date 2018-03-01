@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import DefaultTemplate from 'views/templates/default/default';
 
 
 class Home extends Component {
+
   render() {
+
     return(
-      <h1>Home Page</h1>
+      <DefaultTemplate>
+        <h2>Home Page</h2>
+      </DefaultTemplate>
     );
   }
 }

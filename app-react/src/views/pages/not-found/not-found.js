@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import DefaultTemplate from 'views/templates/default/default';
 
 
 class NotFoundPage extends Component {
   render() {
     return(
-      <h1>Not Found Page</h1>
+      <DefaultTemplate>
+        <h1>Not Found Page</h1>
+      </DefaultTemplate>
     );
   }
 }
